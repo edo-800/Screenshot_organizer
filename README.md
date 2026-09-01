@@ -19,7 +19,7 @@ A lightweight and smart Python automation script that keeps your macOS Desktop c
 1.  **Clone the repository:**
     ```bash
     https://github.com/borracciaedoardo-cyber/Screenshot_organizer.git
-    cd your-repo-name
+    cd Screenshot_organizer
     ```
 
 2.  **Run the script:**
