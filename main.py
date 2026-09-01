@@ -1,39 +1,39 @@
 import os
 import shutil
 
-# 1. Trova in automatico il percorso del Desktop del utente Mac
-percorso_desktop = os.path.expanduser("~/Desktop")
+# 1. Automatically finds the Mac user's Desktop path.
+phat_desktop = os.path.expanduser("~/Desktop")
 
-# 2. Definiamo la cartella dove si trovano gli screenshot e dove spostarli
-cartella_origine = percorso_desktop
-cartella_destinazione = os.path.join(percorso_desktop, "Screenshot_organizer")
+# 2. Define the folder where the screenshots are located and the folder to move them to.
+source_folder = phat_desktop
+destination_folder = os.path.join(phat_desktop, "Screenshot_organizer")
 
-# 3. Creiamo la cartella "screenshot" sul Desktop se non esiste già
-os.makedirs(cartella_destinazione, exist_ok=True)
+# 3. Create the "screenshot" folder on the Desktop if it doesn't already exist.
+os.makedirs(destination_folder, exist_ok=True)
 
-# 4. Leggiamo tutti i file presenti sul Desktop
-tutti_i_file = os.listdir(cartella_origine)
+# 4. Let's read all the files on the Desktop.
+all_file = os.listdir(source_folder)
 
-print("Scansione del Desktop in corso...")
-contatore_spostati = 0
+print("Scanning desktop...")
+moved_counter = 0
 
-# 5. Controlliamo i file uno ad uno
-for singolo_file in tutti_i_file:
+# 5. We check the files one by one.
+for single_file in all_file:
     
-    # Se il file che stiamo esaminando è la nostra cartella, oppure contiene il nome della cartella di destinazione, SALTALO!
-    if singolo_file == "Screenshot_organizer" or singolo_file == "screenshot":
+    # If the file we are examining is our folder, or contains the name of the destination folder, SKIP IT!
+    if single_file == "Screenshot_organizer" or single_file == "screenshot":
         continue
         
-    # Se supera il controllo sopra, applichiamo la logica
-    if "Screenshot" in singolo_file or "Screen Recording" in singolo_file:
+    # If it passes the check above, we apply the logic.
+    if "Screenshot" in single_file or "Screen Recording" in single_file:
         
-        posizione_vecchia = os.path.join(cartella_origine, singolo_file)
-        posizione_nuova = os.path.join(cartella_destinazione, singolo_file)
+        old_position = os.path.join(source_folder, single_file)
+        new_position = os.path.join(destination_folder, single_file)
         
-        # Spostiamo il file dal Desktop alla cartella "Screenshot_organizer"
-        shutil.move(posizione_vecchia, posizione_nuova)
+        # Let's move the file from the Desktop to the "Screenshot_organizer" folder.
+        shutil.move(old_position, new_position)
         
-        print("Spostato sul Desktop -> Screenshot_organizer: " + singolo_file)
-        contatore_spostati = contatore_spostati + 1
+        print("Moved to the desktop -> Screenshot_organizer: " + single_file)
+        moved_counter = moved_counter + 1
 
-print("Pulizia completata! Spostati in totale " + str(contatore_spostati) + " file.")
+print("Cleanup complete! Moved a total of " + str(moved_counter) + " file.")
