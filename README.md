@@ -1,6 +1,3 @@
-Here is your professional README.md ready to copy into your repository:
-
-markdown
 # Screenshot Organizer 🖥️✨
 
 ## Description
