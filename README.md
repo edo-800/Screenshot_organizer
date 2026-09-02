@@ -32,4 +32,7 @@ A lightweight and smart Python automation script that keeps your macOS Desktop c
     > **Note:** You can automate this script to run at startup or at regular intervals using macOS Automator or `crontab` for a permanently clean Desktop.
 
 ## Author
+Edoardo, @edo-800
+
 Created by an aspiring Full-Stack Software Engineer as part of a long-term portfolio for Top Tech companies.
+
